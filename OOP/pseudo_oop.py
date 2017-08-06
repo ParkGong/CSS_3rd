@@ -6,20 +6,22 @@ def person_init(name, money):
     obj['get_money'] = Person[2]
     obj['show'] = Person[3]
     return obj
-#object method
+
+#instance method
 def give_money(self, other, money):
     self['money'] -= money
     other['get_money'](other, money)
-#object method
+    
+#instance method
 def get_money(self, money):
     self['money'] += money
 
-#object method
+#instance method
 def show(self):
     print('{} : {}'.format(self['name'], self['money']))
 
 #class
-#container of object methods
+#container of instance methods
 Person = person_init, give_money, get_money, show
 
 if __name__ == "__main__":
