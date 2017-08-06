@@ -10,10 +10,10 @@
 class Account:
    #constructor
     def __init__(self, name, money):
-        #member
+        #instance member
         self.user = name
         self.balance = money
-    #method 
+    #instance method 
     def deposit(self, money):
         if money < 0:
             return
@@ -27,7 +27,7 @@ class Account:
     - 멤버 초기화
 ```python
 def __init__(self, name, money):
-        #member
+        #instance member
         self.user = name
         self.balance = money
 ```
@@ -44,17 +44,17 @@ def __init__(self, name, money):
 ```
 ---
 
-## object member
+## instance member
   - variable in object
 ```python
 def __init__(self, name, money):
-        #object member
+        #instance member
         self.user = name
         self.balance = money
 ```
 ---
 
-## object method
+## instance method
   - function used by object
   - 객체 생선 전에는 호출할 수 없다.
 ```python
@@ -72,23 +72,26 @@ def deposit(self, money):
 ```python
 class Account:
     #class member
-    bank = 'Fast Bank'
+    name = 'Good life'
+    interest_rate = 7.0
+    kind = 'demand deposit'
 ```
 ---
 
 ## class method
-  - function used by class
+  - function used as global function
   - 객체 생성 전에도 호출할 수 있다.
 ```python
-#class method
+    #class method
     @classmethod
-    def get_bank_info(cls):
-        print('''
-Fast Bank
-1. establishment year : 1977
-2. headquarters : Seoul, Korea
-3. staff : 1700
-''')
+    def get_account_info(cls):
+        '''
+        cls.get_account_info()
+        -> (name, interest_rate, kind)
+        '''
+        return Account.name,\
+        Account.interest_rate,\
+        Account.kind
 ```
 ---
 
@@ -98,7 +101,7 @@ my_acnt = Account('greg', 5000)
 ```
 ---
 
-## object method 호출
+## instance method 호출
 ```python
 #1. by object
 my_acnt.deposit(500)
@@ -110,18 +113,18 @@ Account.deposit(my_acnt, 500)
 ## class member 접근
 ```python
 #1.by class 
-print(Account.bank)    
+print(Account.name, Account.interest_rate, Account.kind)    
 #2.by object
-print(my_acnt.bank)
+print(my_acnt.name, my_acnt.interest_rate, my_acnt.kind)
 ```
 ---
 
 ## class method 호출
 ```python
 #1.by class
-Account.get_bank_info()
+info = Account.get_account_info()
 #2.by object
-my_acnt.get_bank_info()
+info = my_acnt.get_account_info()
 ```
 ---
 

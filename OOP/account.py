@@ -1,16 +1,19 @@
 #계좌 클래스 구현
 class Account:
     #class member
-    bank = 'Fast Bank'
+    name = 'Good life'
+    interest_rate = 7.0
+    kind = 'demand deposit'
 
     #class method
     @classmethod
-    def get_bank_info(cls):
-        print('''Fast Bank
-1. establishment year : 1977
-2. headquarters : Seoul, Korea
-3. staff : 1700
-''')
+    def get_account_info(cls):
+        '''
+        cls.get_account_info() -> (name, interest_rate, kind)
+        '''
+        return Account.name,\
+               Account.interest_rate,\
+               Account.kind
     
     #constructor
     def __init__(self, name, money):
@@ -88,17 +91,23 @@ if __name__== "__main__":
     #class member에 접근하는 방법
     print('class member')
     #1.by class 
-    print(Account.bank)    
+    print(Account.name, Account.interest_rate, Account.kind)    
     #2.by object
-    #print(my_acnt.bank)
+    #print(my_acnt.name, my_acnt.interest_rate, my_acnt.kind)
     print('')
 
     #class method를 호출하는 방법
     print('class method')
     #1.by class
-    Account.get_bank_info()
+    info = Account.get_account_info()
     #2.by object
-    #my_acnt.get_bank_info()
+    #info = my_acnt.get_account_info()
+    
+    print('''Acount info
+name : {}
+interest rate : {}
+kind : {}'''.format(info[0], info[1], info[2]))
+    print('')
     
     #message passing
     print("message passing")
