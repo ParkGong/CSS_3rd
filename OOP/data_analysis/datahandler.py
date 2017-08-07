@@ -1,5 +1,6 @@
 from normal_dist import *
 import openpyxl
+from pickle import *
 
 class DataHandler:
     #클래스 멤버 : 연산기 하나 
@@ -17,9 +18,23 @@ class DataHandler:
             dic[name.value] = score.value
 
         return dic
+
+    #openpyxl이 없으신 분들을 위한 파일 로드 함수
+    @classmethod
+    def get_data_from_file(cls, filename):
+        raw_data = {}
+        f = open(filename, 'rb')
+        try:
+            while True:
+                data = load(f)
+                raw_data.update(data)
+        except EOFError:
+            pass
+        return raw_data
     
     def __init__(self, filename, clsname):
         self.rawdata = DataHandler.get_data_from_excel(filename)
+        #self.rawdata = DataHandler.get_data_from_file(filename)
         self.clsname = clsname 
         #연산한 값을 저장해두는 저장소
         #필요할 때 연산하되
