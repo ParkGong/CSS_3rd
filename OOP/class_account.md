@@ -89,9 +89,9 @@ class Account:
         cls.get_account_info()
         -> (name, interest_rate, kind)
         '''
-        return Account.name,\
-        Account.interest_rate,\
-        Account.kind
+        return cls.name,\
+        cls.interest_rate,\
+        cls.kind
 ```
 ---
 
