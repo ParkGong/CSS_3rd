@@ -33,12 +33,12 @@ class Player(Character):
         '''
         만약 공격 종류가
         플레이어의 기술 중 하나라면
-        데미지를 입지 않습니다. 
+        절반의 데미지를 얻습니다. 
         '''
         if attack_kind in self.skills:
-            return
-        
-        self.HP -= power
+            self.HP -= (power//2)
+        else:    
+            self.HP -= power
         
 class Monster(Character):
     def __init__(self, name, hp, power):
@@ -60,6 +60,9 @@ class Monster(Character):
         else:
             self.HP -= power
 
+    def get_attack_kind(self):
+        return self.attack_kind
+
 class IceMonster(Monster):
     def __init__(self, name = 'Ice monster', hp = 50, power = 10):
         super().__init__(name, hp, power)
@@ -69,6 +72,18 @@ class FireMonster(Monster):
     def __init__(self, name = 'Fire monster', hp = 50, power = 20):
         super().__init__(name, hp, power)
         self.attack_kind = 'FIRE'
+        
+    #메서드 추가
+    #FireMonster만의 행동
+    def fireball(self):
+        '''
+        FireMonster는 1분마다 3미터 내의 모든 객체에
+        파이어볼을 쏩니다.
+        플레이어의 스킬에 'FIRE'가 있다고 해도
+        이 공격을 반감시키지는 못합니다.
+        '''
+        #구현 코드
+        print('fireball')
 
 if __name__ == "__main__":
     player = Player('sword master',100, 30, 'ICE', 'FIRE')
@@ -86,6 +101,13 @@ if __name__ == "__main__":
 
     for monster in monsters:
         print(monster)
+    print('')
     
-            
+    print(player)
+    
+    for monster in monsters:
+        monster.attack(player, monster.get_attack_kind())
+    print('after monsters attacked')
+    
+    print(player)        
         
