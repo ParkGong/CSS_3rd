@@ -26,44 +26,41 @@
 - call by object reference(ONLY IN PYTHON) 
 ---
 
-## ASCII 와 UNICODE
-  - ASCII
-  - UNICODE
+## NUMBERS
+  - two's complement
+  - floating point number
 ---
 
-## NUMBERS
-  - 2의 보수
+## ASCII, UNICODE
+  - ASCII
+  - UNICODE
 ---
 
 ## project 1
  - procedural programming - score measurement ver.1
 ---
 
-## OOP
- - part 1
-   - class
+## OOP part 1
+ - class
    - instance
    - attribute
      - member
      - method
 ---
 
-## OOP
- - part 2
-   - class method
-   - class member
-   - property
-   - inheritance
-     - is-a
-     - has-a
+## OOP part 2
+ - relation between classes
+   - IS-A
+     - inheritance
+   - HAS-A
+     - composition
    - abstract class
  ---
  
- ## OOP
-  - part 3
-    - polymorphism
-    - information hiding
-    - encapsulation
+ ## OOP part 3
+   - encapsulation
+   - information hiding
+   - polymorphism
 ---
 
 ## project 2
@@ -74,10 +71,9 @@
 ## CPU
   - clock
   - register
-    - stack pointer
-    - frame pointer
+    - instruction register
     - program counter
-    - general purpose reg
+  - fetch, decode, execution 
 ---
 
 ## cache and locality
@@ -87,21 +83,34 @@
 ---
 
 ## memory
-- segments
-  - code
-  - data
-  - stack
-  - heap
+  - virtual address space
+    - code
+    - data
+    - stack
+      - stack frame
+        - stack pointer
+        - frame pointer
+    - heap
 ---
 
-# table of contents
-## OS
-- program, process
-- thread
-- multithread
-- race condition
-- mutual exclusion
-- virtual memory 
+## OS part 1
+  - process
+    - process state
+    - process scheduling
+      - priority
+      - round-robin
+    - context switching
+---
+## OS part 2
+  - multithread
+    - race condition
+    - mutual exclusion 
+---
+## OS part 3
+  - virtual memory
+    - virtual address space
+    - page, page frame
+    - page fault
 ---
 
 ## programming language
