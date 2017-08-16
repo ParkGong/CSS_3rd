@@ -53,6 +53,9 @@ class Calculator:
         self.postfix_exp = ''.join(exp_list)
 
     def get_postfix_exp(self):
+        if not self.org_exp:
+            return None
+        
         if not self.postfix_exp:
             self.convert_to_postfix()
 
@@ -69,6 +72,9 @@ class Calculator:
             return oprd1 // oprd2
 
     def calculate(self):
+        if not self.postfix_exp:
+            self.get_postfix_exp()
+        
         oprd_stack = Stack()
 
         for ch in self.get_postfix_exp():
@@ -83,6 +89,9 @@ class Calculator:
         self.result = oprd_stack.pop()
 
     def get_result(self):
+        if not self.org_exp:
+            return
+        
         if not self.result:
             self.calculate()
 

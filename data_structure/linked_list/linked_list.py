@@ -6,7 +6,7 @@ class Node:
     def __del__(self):
         print("data of {} is deleted".format(self.data))
 
-class Linked_list:
+class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
@@ -92,7 +92,7 @@ def show_list(slist):
         print("There is no data")
                 
 if __name__ == "__main__":
-    slist = Linked_list()#1
+    slist = LinkedList()#1
     print("데이터의 개수 : {}".format(slist.size()))
     show_list(slist)
     print("\n")
