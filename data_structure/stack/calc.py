@@ -72,9 +72,6 @@ class Calculator:
             return oprd1 // oprd2
 
     def calculate(self):
-        if not self.postfix_exp:
-            self.get_postfix_exp()
-        
         oprd_stack = Stack()
 
         for ch in self.get_postfix_exp():
