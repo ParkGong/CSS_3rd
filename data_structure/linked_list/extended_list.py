@@ -13,6 +13,19 @@ class LinkedListEx(LinkedList):
             data = self.traverse()
         return None
 
+    def update(self, data):
+        self.current.data = data
+
+    def replace(self, target, f):
+        num_data = self.count(target)
+
+        data = self.search(target, 'first')
+        self.update(f(data))
+
+        for i in range(num_data-1):
+            data = self.search(target)
+            self.update(f(data))
+
     def remove(self, target):
         data = self.traverse('first')
         while data:
@@ -49,16 +62,19 @@ if __name__ == "__main__":
     show_list(slist)
     print('\n')
 
-    print('data 2 의 개수 : {}'.format(slist.count(2)))
-    print('')
+    slist.replace(2, lambda x: x * 2)
 
+    print("데이터의 개수 : {}".format(slist.size()))
+    show_list(slist)
+    print('\n')
     
-    data = slist.remove(2)
+    
+    data = slist.remove(4)
     while data:
         print("데이터의 개수 : {}".format(slist.size()))
         show_list(slist)
         print('\n')
-        data = slist.remove(2)
+        data = slist.remove(4)
 
     slist.append(3)
     print("데이터의 개수 : {}".format(slist.size()))
